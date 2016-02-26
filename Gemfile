@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'redcarpet'
+gem 'rails_12factor', group: 'production'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
