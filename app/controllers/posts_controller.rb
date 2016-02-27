@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  impressionist actions: [:show], unique: [:session_hash]
+
   def search
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     if params[:search]
@@ -22,6 +24,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @post = Post.find(params[:id])
+    impressionist(@post)
   end
 
   # GET /posts/new
