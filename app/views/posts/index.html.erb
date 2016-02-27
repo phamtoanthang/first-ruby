@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-
-<h1>First blog</h1>
-
-<%= render @posts %>
-
-<br>
-
-<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
-
-
+  <%= form_tag(search_posts_path, :method => :get, class: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search..", class: "form-control" %>
+  <% end %>
+  
+  <h1>Thang's blog</h1>
+  <%= render @posts %>
+  <br>
+  <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
 </div>
 

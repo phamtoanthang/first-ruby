@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if params[:search]
+      @posts = Post.search(params[:search]).order("created_at DESC")
+    else
+      @posts = Post.all.order("created_at DESC")
+    end
+  end
+
+
   # GET /posts
   # GET /posts.json
   def index
@@ -11,6 +21,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /posts/new
