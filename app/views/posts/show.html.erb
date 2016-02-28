@@ -14,6 +14,13 @@
           <%= "#{@post.impressionist_count} view(s)" %>
           <h4>Tags:</h4><%= render @post.tags %>
         </div>
+
+        <h2>Comments</h2>
+        <%= render @post.comments %>
+
+        <h2>Add a comment:</h2>
+        <%= render "comments/form" %>
+
       </div>
   </div>
 </div>
