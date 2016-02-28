@@ -4,6 +4,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'redcarpet'
 gem 'rails_12factor', group: 'production'
 gem 'impressionist'
+gem 'acts-as-taggable-on'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
