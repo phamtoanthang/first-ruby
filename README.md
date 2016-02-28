@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 * [ x] User can add "tags" to a post, and filter posts by tag. 
 
 
+## Video Walkthrough 
+https://github.com/phamtoanthang/first-ruby/blob/master/walkthrough.gif
 
-The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
