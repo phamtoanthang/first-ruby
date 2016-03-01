@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :markdown, only: [:search, :index, :show]
 
   impressionist actions: [:show], unique: [:session_hash]
 
   def search
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     if params[:search]
       @posts = Post.search(params[:search]).order("created_at DESC")
     else
@@ -17,13 +17,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @post = Post.find(params[:id])
     impressionist(@post)
   end
@@ -88,4 +86,9 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body, :tag_list)
     end
+
+    def markdown
+      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    end
+
 end
