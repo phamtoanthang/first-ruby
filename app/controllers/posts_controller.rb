@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :markdown, only: [:search, :index, :show]
+  before_action :markdown, only: [:search, :index, :show]
 
   impressionist actions: [:show], unique: [:session_hash]
 
